@@ -16,8 +16,8 @@ from easyanimate.utils.lora_utils import merge_lora, unmerge_lora
 from easyanimate.utils.utils import save_videos_grid
 
 # Config and model path
-config_path         = "config/easyanimate_video_magvit_motion_module_v2.yaml"
-model_name          = "models/Diffusion_Transformer/EasyAnimateV2-XL-2-512x512"
+config_path         = "config/easyanimate_video_slicevae_motion_module_v3.yaml"
+model_name          = "models/Diffusion_Transformer/EasyAnimateV2-XL-2-768x768"
 
 # Choose the sampler in "Euler" "Euler A" "DPM++" "PNDM" and "DDIM"
 sampler_name        = "DPM++"

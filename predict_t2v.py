@@ -6,7 +6,7 @@ from PIL import Image
 from diffusers import (AutoencoderKL, DDIMScheduler,
                        DPMSolverMultistepScheduler,
                        EulerAncestralDiscreteScheduler, EulerDiscreteScheduler,
-                       PNDMScheduler, TCDScheduler)
+                       PNDMScheduler, TCDScheduler, FlowMatchEulerDiscreteScheduler)
 from omegaconf import OmegaConf
 
 from easyanimate.models.autoencoder_magvit import AutoencoderKLMagvit
@@ -19,7 +19,7 @@ from easyanimate.utils.utils import save_videos_grid
 config_path         = "config/easyanimate_video_slicevae_motion_module_v3.yaml"
 model_name          = "models/Diffusion_Transformer/EasyAnimateV2-XL-2-768x768"
 
-# Choose the sampler in "Euler" "Euler A" "DPM++" "PNDM", "DDIM" or "TCD"
+# Choose the sampler in "Euler" "Euler A" "DPM++" "PNDM", "DDIM", "Flow" or "TCD"
 sampler_name        = "TCD"
 
 # Load pretrained model if need
@@ -108,6 +108,7 @@ Choosen_Scheduler = scheduler_dict = {
     "PNDM": PNDMScheduler,
     "DDIM": DDIMScheduler,
     "TCD": TCDScheduler,
+    "Flow": FlowMatchEulerDiscreteScheduler,
 }[sampler_name]
 scheduler = Choosen_Scheduler(**OmegaConf.to_container(config['noise_scheduler_kwargs']))
 

@@ -17,7 +17,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from diffusers.configuration_utils import ConfigMixin, register_to_config
-from diffusers.loaders import FromOriginalVAEMixin
+from diffusers.loaders.single_file_model import FromOriginalModelMixin
 from diffusers.models.attention_processor import (
     ADDED_KV_ATTENTION_PROCESSORS, CROSS_ATTENTION_PROCESSORS, Attention,
     AttentionProcessor, AttnAddedKVProcessor, AttnProcessor)
@@ -38,7 +38,7 @@ def str_eval(item):
     else:
         return item
 
-class AutoencoderKLMagvit(ModelMixin, ConfigMixin, FromOriginalVAEMixin):
+class AutoencoderKLMagvit(ModelMixin, ConfigMixin, FromOriginalModelMixin):
     r"""
     A VAE model with KL loss for encoding images into latents and decoding latent representations into images.
 
